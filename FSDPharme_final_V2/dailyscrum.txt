@@ -1,0 +1,65 @@
+2022/10/12 (Jia - Zeen - Ngan)
+1. Done / not done since last scrum:
+	- created project proposal
+	- created database mockup
+	- submitted project proposal
+	- database desgin
+
+2022/10/12 (Jia)
+2. To do until next Scrum:
+	
+3. Need assistance / figure things out
+	
+	
+2022/10/12 (Zeen)
+2. To do until next Scrum:  
+	
+3. Need assistance / figure things out
+	- None
+	
+2022/10/12 (Ngan)
+2. To do until next Scrum:
+	- setup the github project repository
+	- setup the initial project (install libraries)
+3. Need assistance / figure things out
+	- Github training
+	- Material Design
+<<<<<<< HEAD
+	
+====================================================
+2022/10/13 (Ngan)
+1. Done / not done since last scrum:
+	- setup the github project repository
+	- setup the initial project (install libraries)
+
+2. To do until next Scrum:
+	- Design and implement the main window layout
+	- Design and implement the login window layout
+	- Trello User Story
+	
+3. Need assistance / figure things out
+	- Material Design
+
+2022/10/17 (Ngan)
+1. Done / not done since last scrum:
+	- Design and implement the main window layout
+	- Design and implement the login window layout
+	- Trello User Story
+
+2. To do until next Scrum:
+	- Design and implement the medication admin window layout
+	- Design and implement the user admin window layout
+	- Trello User Story
+	
+3. Need assistance / figure things out
+	- Material Design
+	- MVVM model
+=======
+2022/10/13 (Zeen)
+1. Done / not done since last scrum:
+	-
+2. To do until next Scrum:  
+	-
+3. Need assistance / figure things out
+	- None
+>>>>>>> 8f5f7f8252724abc0288597df7e9cdceb06dfcaa

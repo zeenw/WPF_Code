@@ -1,0 +1,333 @@
+﻿<Window x:Class="ADFSDPhamaV2.Admin_Photo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADFSDPhamaV2"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        Title="FSD Admin"
+        Height="700"
+        Width="1024">
+    <Window.Resources>
+        <Style x:Key="menuTitle"
+               TargetType="TextBlock">
+            <Setter Property="Foreground"
+                    Value="#ffffff" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="FontWeight"
+                    Value="SemiBold" />
+            <Setter Property="Margin"
+                    Value="40 30 0 15" />
+
+        </Style>
+
+        <Style x:Key="menuButton"
+               TargetType="Button">
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="Foreground"
+                    Value="#fed6ce" />
+            <Setter Property="Height"
+                    Value="45" />
+            <Setter Property="FocusVisualStyle"
+                    Value="{x:Null}" />
+            <Setter Property="Margin"
+                    Value="15 0 15 5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Stretch"
+                                              VerticalAlignment="Center" />
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#f7f6f4" />
+                    <Setter Property="Foreground"
+                            Value="#F29900" />
+                </Trigger>
+
+            </Style.Triggers>
+
+        </Style>
+
+        <Style x:Key="menuButtonIcon"
+               TargetType="materialDesign:PackIcon">
+            <Setter Property="Margin"
+                    Value="25 0 0 0" />
+            <Setter Property="Width"
+                    Value="15" />
+            <Setter Property="Height"
+                    Value="15" />
+            <Setter Property="Foreground"
+                    Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        </Style>
+
+        <Style x:Key="menuButtonText"
+               TargetType="TextBlock">
+            <Setter Property="Margin"
+                    Value="20 0 0 2" />
+            <Setter Property="FontSize"
+                    Value="15" />
+            <Setter Property="Foreground"
+                    Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+
+        </Style>
+
+    </Window.Resources>
+    <Border CornerRadius="10"
+            Padding="10"
+            Background="#f7f6f4"
+            MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!-- Menu -->
+            <Border Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.RowSpan="2"
+                    CornerRadius="10">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#a36800"
+                                      Offset="0"></GradientStop>
+                        <GradientStop Color="#F29900"
+                                      Offset="0.8"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+                    <!-- Title-->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0 30 0 10">
+                        <Grid>
+                            <Border Background="#ffffff"
+                                    Width="35"
+                                    Height="35"
+                                    CornerRadius="50" />
+
+                            <Border Width="35"
+                                    Height="35"
+                                    BorderBrush="#ffffff"
+                                    BorderThickness="3"
+                                    CornerRadius="50">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10"
+                                                      Opacity="0.3" />
+                                </Border.Effect>
+                                <!-- Icon-->
+                                <materialDesign:PackIcon Kind="AccountLock"
+                                                         Width="20"
+                                                         Height="20"
+                                                         Foreground="#a36800"
+                                                         VerticalAlignment="Center"
+                                                         HorizontalAlignment="Center" />
+                            </Border>
+                        </Grid>
+                        <!-- Title Text-->
+                        <TextBlock Text="Administration"
+                                   Foreground="#ffffff"
+                                   FontSize="18"
+                                   Margin="10 3">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10"
+                                                  Opacity="0.3" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </StackPanel>
+                    <!-- Menu Items-->
+                    <Separator HorizontalAlignment="Center"
+                               Width="170"
+                               Margin="10 10 10 0"
+                               Background="GhostWhite"
+                               FontWeight="Thin"
+                               Opacity=".8" />
+
+                    <TextBlock Text="Main Menu"
+                               Style="{StaticResource menuTitle}" />
+
+                    <Button Style="{DynamicResource menuButton}"
+                            Click="BtnDash_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewDashboard"
+                                                     Style="{StaticResource menuButtonIcon}"
+                                                     Height="23" />
+                            <TextBlock Text="Dashboard"
+                                       Style="{StaticResource menuButtonText}"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{DynamicResource menuButton}"
+                            Click="BtnMedication_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="PillMultiple"
+                                                     Style="{StaticResource menuButtonIcon}"
+                                                     Height="23" />
+                            <TextBlock Text="Medication"
+                                       Style="{StaticResource menuButtonText}"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="Menu_User"
+                            Click="BtnUser_Click"
+                            Style="{DynamicResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountMultipleCheckOutline"
+                                                     Style="{StaticResource menuButtonIcon}"
+                                                     Height="23" />
+                            <TextBlock Text="User"
+                                       Style="{StaticResource menuButtonText}"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{DynamicResource menuButton}"
+                            Click="BtnSupplier_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Reproduction"
+                                                     Style="{StaticResource menuButtonIcon}"
+                                                     Height="23" />
+                            <TextBlock Text="Supplier"
+                                       Style="{StaticResource menuButtonText}"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{DynamicResource menuButton}"
+                            Click="BtnPhoto_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Image"
+                                                     Style="{StaticResource menuButtonIcon}"
+                                                     Height="23" />
+                            <TextBlock Text="Photo"
+                                       Style="{StaticResource menuButtonText}"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{DynamicResource menuButton}"
+                            Click="BtnCustomer_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FaceAgent"
+                                                     Style="{StaticResource menuButtonIcon}"
+                                                     Height="23" />
+                            <TextBlock Text="Customer"
+                                       Style="{StaticResource menuButtonText}"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{DynamicResource menuButton}"
+                            Margin="15 120 15 0"
+                            Click="BtnLogout_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Logout"
+                                                     Style="{StaticResource menuButtonIcon}"
+                                                     Height="23" />
+                            <TextBlock Text="Logout"
+                                       Style="{StaticResource menuButtonText}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <!-- Main Section-->
+            <Grid Grid.Row="0"
+                  Grid.Column="1"
+                  Grid.RowSpan="2"
+                  Margin="30 20 20 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!-- Search-->
+                <Canvas Margin="0,0,0,593"
+                        Grid.Row="0">
+                    <TextBox materialDesign:HintAssist.Hint="Search here..."
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             VerticalAlignment="Center"
+                             materialDesign:HintAssist.Foreground="#a36800"
+                             materialDesign:TextFieldAssist.UnderlineBrush="#a36800"
+                             Width="300"
+                             Height="48" />
+                    <Button BorderBrush="Transparent"
+                            Background="Transparent"
+                            Width="57"
+                            Height="46"
+                            Canvas.Left="243"
+                            Canvas.Top="2">
+                        <materialDesign:PackIcon Kind="Magnify"
+                                                 Height="30"
+                                                 Width="30"
+                                                 VerticalAlignment="Center"
+                                                 HorizontalAlignment="Center"
+                                                 Foreground="#A36800" />
+
+                    </Button>
+                </Canvas>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,67,0,494">
+                    <TextBlock Text="Photo"
+                               Width="586"
+                               FontSize="20"
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center" />
+                    <Button x:Name="BtnAddNewMed"
+                            Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                            RenderTransformOrigin="0.495,-1.453"
+                            Width="150"
+                            BorderBrush="#FFA36800"
+                            Background="#FFA36800"
+                            Foreground="White"
+                            VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Pill" />
+                            <TextBlock Text="Add New"
+                                       Margin="8 0 0 0" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Border Margin="0,134,0,0"
+                        CornerRadius="5"
+                        Background="White"
+                        BorderThickness="1">
+
+                    <StackPanel>
+
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+
+        </Grid>
+    </Border>
+
+</Window>
